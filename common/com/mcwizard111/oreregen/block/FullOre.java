@@ -50,7 +50,8 @@ public class FullOre extends Block {
 	}
 	
 	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata) {
-		world.setBlock(x, y, z, BlockIds.DEPLETE_ORE);
+		int type = world.getBlockMetadata(x, y, z);
+		world.setBlock(x, y, z, BlockIds.DEPLETE_ORE, type, 2);
 	}
 	
 	@Override
