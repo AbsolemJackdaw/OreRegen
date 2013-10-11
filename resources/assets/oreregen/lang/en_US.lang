@@ -1,0 +1,4 @@
+tile.fullOre.name=Full Ore
+tile.depletedOre.name=Depleted Ore
+
+itemGroup.oreregen=Ore Regen
