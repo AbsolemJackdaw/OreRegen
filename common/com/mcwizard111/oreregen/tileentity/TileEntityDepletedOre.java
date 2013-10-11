@@ -7,11 +7,6 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityDepletedOre extends TileEntity {
 	public int x, y, z;
-	private DepletedOre depletedOre;
-	
-	public TileEntityDepletedOre(DepletedOre depletedOre) {
-		this.depletedOre = depletedOre;
-	}
 
 	public void writeToNBT(NBTTagCompound nbtTagCompound) {
 		super.writeToNBT(nbtTagCompound);

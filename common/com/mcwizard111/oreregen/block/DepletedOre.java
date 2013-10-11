@@ -33,6 +33,6 @@ public class DepletedOre extends BlockContainer {
 
 	@Override
 	public TileEntity createNewTileEntity(World world) {
-		return new TileEntityDepletedOre(this);
+		return new TileEntityDepletedOre();
 	}
 }
