@@ -10,10 +10,25 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityDepletedOre extends TileEntity {
 	public int x, y, z;
-	private int time;
+	private final int time;
+	
+	public TileEntityDepletedOre(int meta){
+		
+		switch(meta){
+			
+			case 0 : 
+				time = (1*20)*60; // 1 minute
+				break;
+				default:
+				time = (20*20)*60; // default 20 minutes. 
+				
+		}
+	}
 
 	public void writeToNBT(NBTTagCompound nbtTagCompound) {
 		super.writeToNBT(nbtTagCompound);
+		
+		nbtTagCompound.setInteger("regenCountDown", time)
 	}
 	
 	public void readFromNBT(NBTTagCompound nbtTagCompound) {
@@ -23,14 +38,12 @@ public class TileEntityDepletedOre extends TileEntity {
 	@Override
 	public void updateEntity() {
 		LogHelper.info("Meta: " + blockMetadata);
-		if (blockMetadata == 0) {
-			time = 20*20;
-		}
 		
 		LogHelper.info(time);
 		
 		if (time <= 0) {
 			worldObj.setBlock(xCoord, yCoord, zCoord, BlockIds.FULL_ORE, blockMetadata, 2);
+			// remove this tile entity too ! 
 		} else {
 			time--;
 		}
